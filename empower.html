@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empower RF | Medical Aesthetics of Chattanooga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --p: #7c3aed; --pl: #a78bfa; --pp: #ede9fe;
+      --w: #fff; --ow: #faf9f7; --ch: #2c2c2c; --mid: #5a5a5a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--ch); background: var(--w); overflow-x: hidden; }
+
+    /* NAV */
+    .top-bar { background: var(--ch); color: var(--pl); text-align: center; padding: 8px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+    .top-bar a { color: var(--pl); text-decoration: none; }
+    nav { background: var(--w); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 80px; }
+    .nav-logo { text-decoration: none; }
+    .nav-logo span { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ch); line-height: 1.2; }
+    .nav-logo small { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--p); font-weight: 400; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: flex; align-items: center; gap: 5px; padding: 28px 16px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--ch); text-decoration: none; transition: color .25s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--p); }
+    .nav-links > li > a .ch { font-size: 8px; transition: transform .25s; }
+    .nav-links > li:hover > a .ch { transform: rotate(180deg); }
+    .drop { display: none; position: absolute; top: 100%; left: 0; background: var(--w); min-width: 230px; box-shadow: 0 10px 40px rgba(0,0,0,0.12); border-top: 2px solid var(--p); z-index: 999; }
+    .nav-links > li:hover .drop { display: block; }
+    .drop a { display: block; padding: 11px 22px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; color: var(--ch); text-decoration: none; border-bottom: 1px solid #f0ede8; transition: background .2s, color .2s; }
+    .drop a:last-child { border-bottom: none; }
+    .drop a:hover { background: var(--pp); color: var(--p); }
+    .nav-phone { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--p); text-decoration: none; }
+    .nav-phone:hover { color: var(--ch); }
+
+    /* HERO */
+    .hero { position: relative; height: 420px; background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80') center/cover; display: flex; align-items: center; justify-content: center; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,10,40,.7), rgba(20,10,40,.4)); }
+    .hero-content { position: relative; z-index: 1; text-align: center; color: var(--w); }
+    .hero-content p { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--pl); font-weight: 600; margin-bottom: 14px; }
+    .hero-content h1 { font-family: var(--serif); font-size: clamp(40px, 7vw, 76px); font-weight: 300; line-height: 1.1; }
+    .hero-content h1 em { font-style: italic; color: var(--pl); }
+    .hero-content h1 span { display: block; font-size: clamp(16px, 2vw, 22px); font-family: var(--sans); font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: 10px; }
+    .breadcrumb { margin-top: 18px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--pl); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* SHARED */
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--p); font-weight: 600; margin-bottom: 10px; }
+    h2.title { font-family: var(--serif); font-size: clamp(28px, 4vw, 48px); font-weight: 300; line-height: 1.2; margin-bottom: 14px; }
+    h2.title em { font-style: italic; color: var(--p); }
+    .divider { width: 50px; height: 2px; background: var(--p); margin: 14px 0 24px; }
+    p.lead { font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; max-width: 720px; }
+
+    /* INTRO */
+    .intro { padding: 80px 30px; background: var(--w); }
+    .intro-grid { display: grid; grid-template-columns: 1fr 400px; gap: 70px; align-items: center; }
+    .device-img { width: 100%; max-width: 320px; object-fit: contain; margin: 0 auto; display: block; filter: drop-shadow(0 20px 60px rgba(124,58,237,0.15)); }
+
+    /* BENEFITS */
+    .benefits { padding: 70px 30px; background: var(--p); }
+    .benefits .eyebrow { color: var(--pl); }
+    .benefits h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: var(--w); margin-bottom: 14px; }
+    .benefits h2 em { font-style: italic; color: var(--pl); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 44px; }
+    .benefit-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); padding: 28px 22px; transition: background .3s; }
+    .benefit-card:hover { background: rgba(255,255,255,.14); }
+    .benefit-icon { font-size: 28px; margin-bottom: 14px; }
+    .benefit-card h4 { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--w); margin-bottom: 10px; }
+    .benefit-card p { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.75; font-weight: 300; }
+
+    /* TECHNOLOGIES */
+    .technologies { padding: 80px 30px; background: var(--ow); }
+    .tech-card { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center; background: var(--w); border: 1px solid #ebe6de; padding: 50px; margin-bottom: 28px; transition: box-shadow .3s; }
+    .tech-card:hover { box-shadow: 0 12px 40px rgba(124,58,237,.1); }
+    .tech-card.reverse { grid-template-columns: 1fr 280px; }
+    .tech-card.reverse .tech-img-wrap { order: 2; }
+    .tech-card.reverse .tech-text { order: 1; }
+    .tech-img-wrap { display: flex; align-items: center; justify-content: center; background: var(--ow); padding: 30px; min-height: 220px; }
+    .tech-img { max-width: 100%; max-height: 200px; object-fit: contain; }
+    .tech-badge { display: inline-block; padding: 5px 14px; background: var(--pp); color: var(--p); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+    .tech-text h3 { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); font-weight: 400; color: var(--ch); margin-bottom: 14px; }
+    .tech-text h3 em { font-style: italic; color: var(--p); }
+    .tech-divider { width: 40px; height: 2px; background: var(--p); margin-bottom: 18px; }
+    .tech-text p { font-size: 14px; color: var(--mid); line-height: 1.8; font-weight: 300; }
+
+    /* CTA */
+    .cta { background: var(--ch); padding: 80px 30px; text-align: center; position: relative; overflow: hidden; }
+    .cta::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=50') center/cover; opacity: .06; }
+    .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta .eyebrow { color: var(--pl); text-align: center; }
+    .cta h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 50px); font-weight: 300; color: var(--w); margin: 10px 0 14px; }
+    .cta h2 em { font-style: italic; color: var(--pl); }
+    .cta p { color: rgba(255,255,255,.65); font-size: 15px; line-height: 1.8; font-weight: 300; margin-bottom: 30px; }
+    .btn { display: inline-block; padding: 15px 40px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; text-decoration: none; margin: 0 8px 10px; border: 2px solid var(--p); transition: all .3s; }
+    .btn-solid { background: var(--p); color: var(--w); }
+    .btn-solid:hover { background: transparent; color: var(--pl); }
+    .btn-outline { background: transparent; color: var(--w); border-color: rgba(255,255,255,.35); }
+    .btn-outline:hover { border-color: var(--pl); color: var(--pl); }
+
+    /* FOOTER */
+    footer { background: #141414; color: rgba(255,255,255,.5); padding: 50px 30px 30px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .bn { font-family: var(--serif); font-size: 20px; color: var(--w); margin-bottom: 4px; }
+    .footer-brand .bs { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--pl); margin-bottom: 16px; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; }
+    .footer-links h4 { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--pl); font-weight: 600; margin-bottom: 16px; }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 8px; }
+    .footer-links ul li a { color: rgba(255,255,255,.5); text-decoration: none; font-size: 12px; transition: color .2s; }
+    .footer-links ul li a:hover { color: var(--pl); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; text-align: center; font-size: 11px; color: rgba(255,255,255,.25); max-width: 1100px; margin: 0 auto; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; }
+      .tech-card, .tech-card.reverse { grid-template-columns: 1fr; }
+      .tech-card.reverse .tech-img-wrap, .tech-card.reverse .tech-text { order: unset; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .tech-card { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar"><a href="tel:4236487546">Call Us: (423) 648-7546</a> &nbsp;|&nbsp; Chattanooga, Tennessee</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>Medical Aesthetics<small>of Chattanooga</small></span></a>
+    <ul class="nav-links">
+      <li>
+        <a href="aesthetics.html">Aesthetics <span class="ch">▾</span></a>
+        <div class="drop">
+          <a href="#">Botox Cosmetic</a><a href="#">Peels</a><a href="#">Xeomin</a><a href="#">Lipo-B Injections</a>
+          <a href="#">Fillers</a><a href="#">Kybella</a><a href="#">M'lis Body Wrap</a><a href="#">PRP – Platelet Rich Plasma</a>
+          <a href="#">Microneedling</a><a href="#">Laser Face Resurfacing</a><a href="#">ThermiSmooth</a>
+          <a href="#">Laser Hair Removal</a><a href="#">Lumecca IPL</a><a href="#">Morpheus8</a>
+          <a href="#">Medical Weight Loss</a><a href="#">Obagi Skintrinsiq</a><a href="#">Bio-HRT</a>
+          <a href="#">Ultherapy</a><a href="#">Peptide Therapy</a><a href="#">Teeth Whitening</a>
+          <a href="#">Cellenis® Derma PRP</a><a href="#">Neocutis &amp; Dermamade Skincare</a>
+        </div>
+      </li>
+      <li>
+        <a href="coolsculpting.html">CoolSculpting <span class="ch">▾</span></a>
+        <div class="drop">
+          <a href="coolsculpting.html">Overview</a>
+          <a href="coolsculpting.html#faq">FAQ's</a>
+          <a href="coolsculpting.html#results">Results</a>
+        </div>
+      </li>
+      <li><a href="empower.html" class="active">Empower</a></li>
+      <li>
+        <a href="about.html">About Us <span class="ch">▾</span></a>
+        <div class="drop">
+          <a href="about.html#team">Meet Our Team</a>
+          <a href="about.html#contact">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="tel:4236487546" class="nav-phone">(423) 648-7546</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <p>Medical Aesthetics of Chattanooga</p>
+    <h1><em>Empower</em>RF by InMode<span>Women's Wellness Platform</span></h1>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span>Empower</div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="inner intro-grid">
+    <div>
+      <p class="eyebrow">InMode EmpowerRF</p>
+      <h2 class="title">A New Standard in<br><em>Women's Wellness</em></h2>
+      <div class="divider"></div>
+      <p class="lead">At Medical Aesthetics of Chattanooga, we proudly introduce EmpowerRF by InMode — an exceptional multi-functional platform designed to cater to women's wellness needs. This innovative in-office system offers a comprehensive range of therapies to address various concerns including strengthening weak pelvic floor muscles, relieving stress, urge, and mixed urinary incontinence, managing pain, enhancing blood circulation, and fortifying abdominal muscles.</p>
+      <p class="lead" style="margin-top:16px;">EmpowerRF helps restore patient self-confidence and quality of life without the need for surgery or extended downtime. Our synergistic technology handpieces enable tailored, layered procedures that effectively target a wide range of issues with swift, safe, and effective delivery.</p>
+      <a href="about.html#contact" class="btn btn-solid" style="margin-top:32px;display:inline-block;">Book a Consultation</a>
+    </div>
+    <img class="device-img"
+         src="https://chattaesthetics.com/wp-content/uploads/2024/02/EmpowerRF_Naked_Side-539x1024.png"
+         alt="EmpowerRF Device by InMode"
+         loading="lazy"
+         onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80'" />
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="inner">
+    <p class="eyebrow">Leveraging Multiple Energies</p>
+    <h2>Key <em>Benefits</em> of EmpowerRF</h2>
+    <div class="divider" style="background:rgba(255,255,255,.3)"></div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h4>Intravaginal EMS</h4>
+        <p>Intravaginal electrical muscle stimulation to rehabilitate weak pelvic floor muscles and address urinary incontinence.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌡️</div>
+        <h4>Bipolar RF Heating</h4>
+        <p>Bipolar radiofrequency for deep volumetric heating, delivering uniform tissue treatment with real-time temperature control.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">✦</div>
+        <h4>Fractional Microneedling</h4>
+        <p>Sub-dermal fractional microneedling and coagulation for minimally invasive treatment of subcutaneous tissue.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💪</div>
+        <h4>Muscle Stimulation</h4>
+        <p>Electrical muscle stimulation (EMS) to simulate involuntary muscle contractions, restoring strength to targeted muscle groups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGIES -->
+<section class="technologies">
+  <div class="inner">
+    <p class="eyebrow" style="text-align:center;">The EmpowerRF System</p>
+    <h2 class="title" style="text-align:center;">Our <em>Technology</em> Handpieces</h2>
+    <div class="divider" style="margin:14px auto 50px;"></div>
+
+    <!-- VTone -->
+    <div class="tech-card">
+      <div class="tech-img-wrap">
+        <img class="tech-img"
+             src="https://chattaesthetics.com/wp-content/uploads/2024/02/technology_vtone-1.png"
+             alt="VTone handpiece"
+             loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&q=80'" />
+      </div>
+      <div class="tech-text">
+        <span class="tech-badge">FDA Cleared</span>
+        <h3><em>VTone</em></h3>
+        <div class="tech-divider"></div>
+        <p>VTone is a gentle, FDA cleared technology designed to provide intravaginal electrical muscle stimulation (EMS) and neuromuscular re-education to rehabilitate weak pelvic floor muscles, and address stress, urge, and mixed urinary incontinence. A comfortable, non-invasive treatment that delivers meaningful results for women's intimate wellness.</p>
+      </div>
+    </div>
+
+    <!-- FormaV -->
+    <div class="tech-card reverse">
+      <div class="tech-img-wrap">
+        <img class="tech-img"
+             src="https://chattaesthetics.com/wp-content/uploads/2024/02/technology_formav.png"
+             alt="FormaV handpiece"
+             loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80'" />
+      </div>
+      <div class="tech-text">
+        <span class="tech-badge">Deep Tissue Heating</span>
+        <h3><em>FormaV</em></h3>
+        <div class="tech-divider"></div>
+        <p>FormaV is a comfortable device that provides uniform volumetric deep heating for tissue treatment with real-time temperature control. This precise thermal delivery promotes tissue remodeling and improves overall tissue quality, restoring comfort and confidence with no downtime required.</p>
+      </div>
+    </div>
+
+    <!-- Morpheus8 -->
+    <div class="tech-card">
+      <div class="tech-img-wrap">
+        <img class="tech-img"
+             src="https://chattaesthetics.com/wp-content/uploads/2024/02/Morpheus8-handpiece-space.png"
+             alt="Morpheus8 handpiece"
+             loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1573461160327-f57bde1a8a62?w=400&q=80'" />
+      </div>
+      <div class="tech-text">
+        <span class="tech-badge">Minimally Invasive</span>
+        <h3><em>Morpheus8</em> &amp; Morpheus8V</h3>
+        <div class="tech-divider"></div>
+        <p>Morpheus8 and Morpheus8V are minimally invasive treatments designed for fractional coagulation of subcutaneous tissue. Morpheus8 provides an interchangeable portfolio of microneedling tips to deliver customizable fractional treatments — targeting deep layers of skin and tissue for comprehensive rejuvenation and tightening.</p>
+      </div>
+    </div>
+
+    <!-- Tone -->
+    <div class="tech-card reverse">
+      <div class="tech-img-wrap">
+        <img class="tech-img"
+             src="https://chattaesthetics.com/wp-content/uploads/2024/02/Tone-applicator.png"
+             alt="Tone applicator"
+             loading="lazy"
+             onerror="this.src='https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80'" />
+      </div>
+      <div class="tech-text">
+        <span class="tech-badge">Hands-Free EMS</span>
+        <h3><em>Tone</em></h3>
+        <div class="tech-divider"></div>
+        <p>Tone works by emitting pulses of electrical muscle stimulation (EMS) to simulate involuntary muscle contractions on body areas. Tone's hands-free applicators target specific muscle groups to restore the strength of the muscle — an effective, comfortable treatment for abdominal toning and core strengthening without surgery or downtime.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <p class="eyebrow">Restore Your Confidence</p>
+    <h2>Ready to <em>Feel Like You</em> Again?</h2>
+    <p>EmpowerRF is a life-changing treatment for women's wellness. Contact our team today for a free consultation and discover which EmpowerRF therapies are right for you.</p>
+    <a href="about.html#contact" class="btn btn-solid">Book Free Consultation</a>
+    <a href="tel:4236487546" class="btn btn-outline">Call (423) 648-7546</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="bn">Medical Aesthetics</div>
+      <div class="bs">of Chattanooga</div>
+      <p>Safe, proven aesthetic treatments to help you look and feel your best — right here in Chattanooga, Tennessee.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#">Botox Cosmetic</a></li><li><a href="#">Fillers</a></li>
+        <li><a href="coolsculpting.html">CoolSculpting</a></li><li><a href="#">Morpheus8</a></li>
+        <li><a href="#">Microneedling</a></li><li><a href="#">Lumecca IPL</a></li>
+        <li><a href="empower.html">Empower RF</a></li><li><a href="#">Medical Weight Loss</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html#team">Meet Our Team</a></li>
+        <li><a href="about.html#contact">Contact Us</a></li>
+        <li><a href="empower.html">Empower</a></li>
+        <li><a href="coolsculpting.html#faq">CoolSculpting FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; Medical Aesthetics of Chattanooga. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
