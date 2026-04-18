@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aesthetics Treatments | Medical Aesthetics of Chattanooga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --purple-pale: #ede9fe;
+      --white: #ffffff;
+      --off-white: #faf9f7;
+      --charcoal: #2c2c2c;
+      --mid: #5a5a5a;
+      --light: #9a9a9a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--charcoal); background: var(--white); overflow-x: hidden; }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      background: var(--charcoal);
+      color: var(--purple-light);
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .top-bar a { color: var(--purple-light); text-decoration: none; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      height: 80px;
+    }
+    .nav-logo span {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 400;
+    }
+    .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a {
+      display: flex; align-items: center; gap: 5px;
+      padding: 28px 18px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: color 0.25s;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active { color: var(--purple); }
+    .nav-links > li > a .chevron { font-size: 8px; transition: transform 0.25s; }
+    .nav-links > li:hover > a .chevron { transform: rotate(180deg); }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      min-width: 230px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      border-top: 2px solid var(--purple);
+      z-index: 999;
+    }
+    .nav-links > li:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block;
+      padding: 11px 22px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .dropdown a:last-child { border-bottom: none; }
+    .dropdown a:hover { background: var(--purple-pale); color: var(--purple); }
+    .nav-phone {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--purple);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-phone:hover { color: var(--charcoal); }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      position: relative;
+      height: 380px;
+      background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(20,10,40,0.65) 0%, rgba(20,10,40,0.45) 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--white);
+    }
+    .page-hero-content p {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .page-hero-content h1 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 6vw, 70px);
+      font-weight: 300;
+      line-height: 1.1;
+    }
+    .page-hero-content h1 em { font-style: italic; color: var(--purple-light); }
+    .breadcrumb {
+      margin-top: 20px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--purple-light); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ─── INTRO STRIP ─── */
+    .intro-strip {
+      background: var(--purple);
+      padding: 36px 30px;
+      text-align: center;
+    }
+    .intro-strip p {
+      color: rgba(255,255,255,0.9);
+      font-size: 15px;
+      font-weight: 300;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+    }
+    .intro-strip strong { color: var(--white); font-weight: 600; }
+
+    /* ─── FILTERS ─── */
+    .filter-bar {
+      background: var(--off-white);
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e8e2d8;
+    }
+    .filter-btn {
+      padding: 8px 22px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: var(--sans);
+      border: 1px solid #d0cbc3;
+      background: transparent;
+      color: var(--mid);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+    }
+
+    /* ─── TREATMENT GRID ─── */
+    .treatments-section {
+      padding: 70px 30px 90px;
+      background: var(--white);
+    }
+    .treatments-inner { max-width: 1160px; margin: 0 auto; }
+
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .treatment-card {
+      background: var(--white);
+      border: 1px solid #ebe6de;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .treatment-card:hover {
+      box-shadow: 0 16px 50px rgba(124,58,237,0.13);
+      transform: translateY(-5px);
+    }
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 210px;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .treatment-card:hover .card-img-wrap img { transform: scale(1.05); }
+    .card-category {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--purple);
+      color: var(--white);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 5px 12px;
+    }
+
+    .card-body {
+      padding: 26px 26px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .card-divider {
+      width: 36px;
+      height: 2px;
+      background: var(--purple);
+      margin-bottom: 14px;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.75;
+      font-weight: 300;
+      flex: 1;
+      margin-bottom: 22px;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--purple);
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .card-link:hover { gap: 14px; color: var(--charcoal); }
+    .card-link::after { content: '→'; font-size: 14px; }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--charcoal);
+      padding: 80px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1400&q=50') center/cover;
+      opacity: 0.06;
+    }
+    .cta-banner-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+    .cta-banner p.eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .cta-banner h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .cta-banner h2 em { font-style: italic; color: var(--purple-light); }
+    .cta-banner p.sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .btn-cta {
+      display: inline-block;
+      padding: 16px 44px;
+      background: var(--purple);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 2px solid var(--purple);
+      transition: background 0.3s, color 0.3s;
+      margin: 0 8px 12px;
+    }
+    .btn-cta:hover { background: transparent; color: var(--purple-light); }
+    .btn-cta-outline {
+      display: inline-block;
+      padding: 16px 44px;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.35);
+      transition: border-color 0.3s, color 0.3s;
+      margin: 0 8px 12px;
+    }
+    .btn-cta-outline:hover { border-color: var(--purple-light); color: var(--purple-light); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #141414;
+      color: rgba(255,255,255,0.5);
+      padding: 50px 30px 30px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .brand-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .footer-brand .brand-sub {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 18px;
+    }
+    .footer-brand p { font-size: 13px; line-height: 1.7; }
+    .footer-links h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 9px; }
+    .footer-links ul li a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+    .footer-links ul li a:hover { color: var(--purple-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.5px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .treatments-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .treatments-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <a href="tel:4236487546">Call Us: (423) 648-7546</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    Chattanooga, Tennessee
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="text-decoration:none;">
+        <span>Medical Aesthetics
+          <small>of Chattanooga</small>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="aesthetics.html" class="active">Aesthetics <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="#" data-page="chattaesthetics-botox">Botox Cosmetic</a>
+            <a href="#" data-page="chattaesthetics-peels">Peels</a>
+            <a href="#" data-page="chattaesthetics-xeomin">Xeomin</a>
+            <a href="#" data-page="chattaesthetics-lipo-b">Lipo-B Injections</a>
+            <a href="#" data-page="chattaesthetics-fillers">Fillers</a>
+            <a href="#" data-page="chattaesthetics-kybella">Kybella</a>
+            <a href="#" data-page="chattaesthetics-mlis">M'lis Body Wrap</a>
+            <a href="#" data-page="chattaesthetics-prp">PRP – Platelet Rich Plasma</a>
+            <a href="#" data-page="chattaesthetics-microneedling">Microneedling</a>
+            <a href="#" data-page="chattaesthetics-laser-resurfacing">Laser Face Resurfacing</a>
+            <a href="#" data-page="chattaesthetics-thermi-smooth">ThermiSmooth</a>
+            <a href="#" data-page="chattaesthetics-laser-hair-removal">Laser Hair Removal</a>
+            <a href="#" data-page="chattaesthetics-lumecca">Lumecca IPL</a>
+            <a href="#" data-page="chattaesthetics-morpheus8">Morpheus8</a>
+            <a href="#" data-page="chattaesthetics-weight-loss">Medical Weight Loss</a>
+            <a href="#" data-page="chattaesthetics-obagi">Obagi Skintrinsiq</a>
+            <a href="#" data-page="chattaesthetics-bio-hrt">Bio-HRT</a>
+            <a href="#" data-page="chattaesthetics-ultherapy">Ultherapy</a>
+            <a href="#" data-page="chattaesthetics-peptide">Peptide Therapy</a>
+            <a href="#" data-page="chattaesthetics-teeth-whitening">Teeth Whitening</a>
+            <a href="#" data-page="chattaesthetics-cellenis">Cellenis® Derma PRP</a>
+            <a href="#" data-page="chattaesthetics-skincare">Neocutis &amp; Dermamade Skincare</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">CoolSculpting <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="#" data-page="chattaesthetics-coolsculpting">Overview</a>
+            <a href="#" data-page="chattaesthetics-coolsculpting-faq">CoolSculpting FAQ's</a>
+            <a href="#" data-page="chattaesthetics-coolsculpting-results">CoolSculpting Results</a>
+          </div>
+        </li>
+        <li><a href="#" data-page="chattaesthetics-empower">Empower</a></li>
+        <li>
+          <a href="#">About Us <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="about.html">Meet Our Team</a>
+            <a href="about.html">Contact Us</a>
+          </div>
+        </li>
+      </ul>
+      <a href="tel:4236487546" class="nav-phone">(423) 648-7546</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <p>Medical Aesthetics of Chattanooga</p>
+      <h1>Our <em>Aesthetic</em> Treatments</h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        Aesthetics
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+    <p>From minimally invasive injectables to advanced laser and body contouring technologies, our full menu of <strong>clinically proven treatments</strong> is designed to help you look and feel your absolute best — with little to no downtime.</p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Treatments</button>
+    <button class="filter-btn" data-filter="injectable">Injectables</button>
+    <button class="filter-btn" data-filter="laser">Laser & Light</button>
+    <button class="filter-btn" data-filter="body">Body & Contouring</button>
+    <button class="filter-btn" data-filter="skin">Skin Rejuvenation</button>
+    <button class="filter-btn" data-filter="wellness">Wellness</button>
+  </div>
+
+  <!-- TREATMENT CARDS GRID -->
+  <section class="treatments-section">
+    <div class="treatments-inner">
+      <div class="treatments-grid">
+
+        <!-- 1. Botox Cosmetic -->
+        <div class="treatment-card" data-category="injectable">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1621798166912-f4b33d0d8de3?w=600&q=80" alt="Botox Cosmetic" loading="lazy" />
+            <span class="card-category">Injectable</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Botox Cosmetic</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">The world's most popular non-surgical cosmetic treatment. Botox relaxes the muscles responsible for fine lines and wrinkles — smoothing crow's feet, forehead lines, and frown lines for a naturally refreshed appearance with zero downtime.</p>
+            <a href="#" data-page="chattaesthetics-botox" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 2. Peels -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Chemical Peels" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Peels</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Medical-grade chemical peels exfoliate damaged outer layers of skin to reveal smoother, brighter, more even-toned skin beneath. Effective for sun damage, acne scars, fine lines, and dullness — with solutions tailored to your skin type.</p>
+            <a href="#" data-page="chattaesthetics-peels" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 3. Xeomin -->
+        <div class="treatment-card" data-category="injectable">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Xeomin" loading="lazy" />
+            <span class="card-category">Injectable</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Xeomin</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">A "naked" neuromodulator free from complexing proteins, Xeomin works like Botox to relax wrinkle-causing muscles — with a reduced risk of antibody resistance over time. Ideal for treating frown lines between the brows and other facial wrinkles.</p>
+            <a href="#" data-page="chattaesthetics-xeomin" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 4. Lipo-B Injections -->
+        <div class="treatment-card" data-category="wellness">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=600&q=80" alt="Lipo-B Injections" loading="lazy" />
+            <span class="card-category">Wellness</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Lipo-B Injections</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Lipotropic B12 injections combine fat-burning amino acids (methionine, inositol, choline) with energizing B vitamins to boost metabolism, increase energy levels, and support the body's natural fat-processing mechanisms as part of a weight management plan.</p>
+            <a href="#" data-page="chattaesthetics-lipo-b" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 5. Fillers -->
+        <div class="treatment-card" data-category="injectable">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Dermal Fillers" loading="lazy" />
+            <span class="card-category">Injectable</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Fillers</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Hyaluronic acid-based dermal fillers restore lost volume, sculpt facial contours, and smooth deep lines. From plumping lips and cheeks to erasing nasolabial folds, fillers deliver immediate, natural-looking results that can last 6–18 months.</p>
+            <a href="#" data-page="chattaesthetics-fillers" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 6. Kybella -->
+        <div class="treatment-card" data-category="injectable">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=600&q=80" alt="Kybella" loading="lazy" />
+            <span class="card-category">Injectable</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Kybella</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">The only FDA-approved injectable to permanently destroy fat cells under the chin. Kybella uses synthetic deoxycholic acid to break down and absorb submental fat — eliminating the appearance of a "double chin" without surgery or downtime.</p>
+            <a href="#" data-page="chattaesthetics-kybella" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 7. M'lis Body Wrap -->
+        <div class="treatment-card" data-category="body">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="M'lis Body Wrap" loading="lazy" />
+            <span class="card-category">Body & Contouring</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">M'lis Body Wrap</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">A therapeutic body contouring wrap that uses concentrated herbal detox formulas to inch-loss, reduce the appearance of cellulite, and improve skin tone. Results are often visible after the very first session, making it a popular choice before special events.</p>
+            <a href="#" data-page="chattaesthetics-mlis" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 8. PRP -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="PRP Platelet Rich Plasma" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">PRP – Platelet Rich Plasma</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Harness your body's own healing power. Platelet-rich plasma drawn from your blood is concentrated and re-injected to stimulate collagen production, accelerate tissue repair, and rejuvenate aging skin — naturally and with minimal risk.</p>
+            <a href="#" data-page="chattaesthetics-prp" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 9. Microneedling -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Microneedling" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Microneedling</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Tiny controlled micro-injuries trigger the skin's natural healing response — flooding the area with fresh collagen and elastin. Microneedling effectively treats acne scars, enlarged pores, stretch marks, fine lines, and uneven texture.</p>
+            <a href="#" data-page="chattaesthetics-microneedling" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 10. Laser Face Resurfacing -->
+        <div class="treatment-card" data-category="laser">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?w=600&q=80" alt="Laser Face Resurfacing" loading="lazy" />
+            <span class="card-category">Laser & Light</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Laser Face Resurfacing</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Advanced laser energy precisely removes damaged skin layers while stimulating collagen remodeling deep beneath the surface. This powerful treatment targets wrinkles, sun spots, acne scars, and uneven skin tone for dramatically smoother, younger-looking skin.</p>
+            <a href="#" data-page="chattaesthetics-laser-resurfacing" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 11. ThermiSmooth -->
+        <div class="treatment-card" data-category="body">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="ThermiSmooth" loading="lazy" />
+            <span class="card-category">Body & Contouring</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">ThermiSmooth</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">A gentle radiofrequency treatment that delivers controlled heat to the skin's surface, stimulating collagen and tightening loose, crepey skin on the face and body. Comfortable, non-invasive, and with no recovery time required.</p>
+            <a href="#" data-page="chattaesthetics-thermi-smooth" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 12. Laser Hair Removal -->
+        <div class="treatment-card" data-category="laser">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?w=600&q=80" alt="Laser Hair Removal" loading="lazy" />
+            <span class="card-category">Laser & Light</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Laser Hair Removal</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Permanently reduce unwanted hair on the face, legs, underarms, bikini line, and more. Our medical-grade laser targets hair follicles precisely while leaving surrounding skin unharmed — delivering long-lasting smoothness in just a few sessions.</p>
+            <a href="#" data-page="chattaesthetics-laser-hair-removal" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 13. Lumecca IPL -->
+        <div class="treatment-card" data-category="laser">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=600&q=80" alt="Lumecca IPL" loading="lazy" />
+            <span class="card-category">Laser & Light</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Lumecca IPL</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">The most powerful intense pulsed light (IPL) device available, Lumecca treats sun damage, age spots, rosacea, broken capillaries, and vascular lesions in as few as 1–3 sessions — leaving skin visibly clearer, more even, and luminous.</p>
+            <a href="#" data-page="chattaesthetics-lumecca" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 14. Morpheus8 -->
+        <div class="treatment-card" data-category="body">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1573461160327-f57bde1a8a62?w=600&q=80" alt="Morpheus8" loading="lazy" />
+            <span class="card-category">Body & Contouring</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Morpheus8</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">A revolutionary fractional radiofrequency microneedling device that remodels fat and tightens skin from the inside out. Morpheus8 targets deep tissue layers to lift, contour, and rejuvenate the face, neck, and body with minimal downtime.</p>
+            <a href="#" data-page="chattaesthetics-morpheus8" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 15. Medical Weight Loss -->
+        <div class="treatment-card" data-category="wellness">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" alt="Medical Weight Loss" loading="lazy" />
+            <span class="card-category">Wellness</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Medical Weight Loss</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">A physician-supervised weight loss program combining prescription medications, nutritional guidance, and metabolic support to help you achieve sustainable fat loss. Our personalized protocols are designed around your body's unique biology for lasting results.</p>
+            <a href="#" data-page="chattaesthetics-weight-loss" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 16. Obagi Skintrinsiq -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="Obagi Skintrinsiq" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Obagi Skintrinsiq</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">A proprietary 3-in-1 system that cleanses, extracts, and infuses the skin with custom Obagi serums in one seamless treatment. It visibly improves skin texture, hydration, and radiance — delivering immediate luminosity with no downtime.</p>
+            <a href="#" data-page="chattaesthetics-obagi" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 17. Bio-HRT -->
+        <div class="treatment-card" data-category="wellness">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=600&q=80" alt="Bio-HRT Hormone Replacement" loading="lazy" />
+            <span class="card-category">Wellness</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Bio-HRT</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Bioidentical hormone replacement therapy (Bio-HRT) uses plant-derived hormones molecularly identical to those your body produces naturally — restoring hormonal balance, energy, libido, mental clarity, and overall wellbeing for both men and women.</p>
+            <a href="#" data-page="chattaesthetics-bio-hrt" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 18. Ultherapy -->
+        <div class="treatment-card" data-category="body">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=600&q=80" alt="Ultherapy" loading="lazy" />
+            <span class="card-category">Body & Contouring</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Ultherapy</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">The only FDA-cleared non-invasive procedure to lift the brow, chin, neck, and décolletage. Ultherapy uses focused ultrasound energy to stimulate deep collagen renewal — producing a natural, progressive lift over 2–3 months with no surgery required.</p>
+            <a href="#" data-page="chattaesthetics-ultherapy" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 19. Peptide Therapy -->
+        <div class="treatment-card" data-category="wellness">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=80" alt="Peptide Therapy" loading="lazy" />
+            <span class="card-category">Wellness</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Peptide Therapy</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Short chains of amino acids that act as biological messengers, therapeutic peptides can optimize growth hormone production, accelerate healing, improve sleep quality, boost immunity, and support anti-aging goals — a cutting-edge approach to whole-body wellness.</p>
+            <a href="#" data-page="chattaesthetics-peptide" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 20. Teeth Whitening -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&q=80" alt="Teeth Whitening" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Teeth Whitening</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Professional-grade in-office teeth whitening delivers dramatically brighter results in a single visit — far beyond what at-home kits can achieve. Our treatment safely lifts stains from coffee, wine, and aging to reveal a confident, luminous smile.</p>
+            <a href="#" data-page="chattaesthetics-teeth-whitening" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 21. Cellenis® Derma PRP -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Cellenis Derma PRP" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Cellenis® Derma PRP</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">An advanced PRP system that precisely concentrates your own growth factors for superior skin rejuvenation outcomes. Cellenis® Derma PRP is used to treat fine lines, skin laxity, and hair thinning — leveraging your body's biology for remarkable results.</p>
+            <a href="#" data-page="chattaesthetics-cellenis" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <!-- 22. Neocutis & Dermamade Skincare -->
+        <div class="treatment-card" data-category="skin">
+          <div class="card-img-wrap">
+            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80" alt="Neocutis Dermamade Skincare" loading="lazy" />
+            <span class="card-category">Skin Rejuvenation</span>
+          </div>
+          <div class="card-body">
+            <div class="card-title">Neocutis & Dermamade Skincare</div>
+            <div class="card-divider"></div>
+            <p class="card-desc">Clinically formulated luxury skincare lines available exclusively through medical providers. Neocutis and Dermamade products feature proprietary growth factor complexes, retinoids, and antioxidants that extend and enhance the results of your in-clinic treatments.</p>
+            <a href="#" data-page="chattaesthetics-skincare" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+      </div><!-- /treatments-grid -->
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div class="cta-banner-inner">
+      <p class="eyebrow">Take the First Step</p>
+      <h2>Ready for Your<br><em>Free Consultation?</em></h2>
+      <p class="sub">Not sure which treatment is right for you? Our expert team will assess your goals and build a personalized plan — at no charge.</p>
+      <a href="about.html" class="btn-cta">Book a Consultation</a>
+      <a href="tel:4236487546" class="btn-cta-outline">Call (423) 648-7546</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">Medical Aesthetics</div>
+        <div class="brand-sub">of Chattanooga</div>
+        <p>Safe, proven aesthetic treatments to help you look and feel your best — right here in Chattanooga, Tennessee.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="#" data-page="chattaesthetics-botox">Botox Cosmetic</a></li>
+          <li><a href="#" data-page="chattaesthetics-fillers">Fillers</a></li>
+          <li><a href="#" data-page="chattaesthetics-coolsculpting">CoolSculpting</a></li>
+          <li><a href="#" data-page="chattaesthetics-morpheus8">Morpheus8</a></li>
+          <li><a href="#" data-page="chattaesthetics-microneedling">Microneedling</a></li>
+          <li><a href="#" data-page="chattaesthetics-lumecca">Lumecca IPL</a></li>
+          <li><a href="#" data-page="chattaesthetics-laser-hair-removal">Laser Hair Removal</a></li>
+          <li><a href="#" data-page="chattaesthetics-weight-loss">Medical Weight Loss</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">Meet Our Team</a></li>
+          <li><a href="about.html">Contact Us</a></li>
+          <li><a href="#" data-page="chattaesthetics-empower">Empower</a></li>
+          <li><a href="#" data-page="chattaesthetics-coolsculpting-faq">CoolSculpting FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Medical Aesthetics of Chattanooga. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- FILTER JS -->
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.treatment-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Medical Aesthetics of Chattanooga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --purple-pale: #ede9fe;
+      --white: #ffffff;
+      --off-white: #faf9f7;
+      --charcoal: #2c2c2c;
+      --mid: #5a5a5a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--charcoal); background: var(--white); overflow-x: hidden; }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      background: var(--charcoal);
+      color: var(--purple-light);
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .top-bar a { color: var(--purple-light); text-decoration: none; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      height: 80px;
+    }
+    .nav-logo span {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 400;
+    }
+    .nav-links { display: flex; align-items: center; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a {
+      display: flex; align-items: center; gap: 5px;
+      padding: 28px 18px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: color 0.25s;
+      white-space: nowrap;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active { color: var(--purple); }
+    .nav-links > li > a .chevron { font-size: 8px; transition: transform 0.25s; }
+    .nav-links > li:hover > a .chevron { transform: rotate(180deg); }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      min-width: 230px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      border-top: 2px solid var(--purple);
+      z-index: 999;
+    }
+    .nav-links > li:hover .dropdown { display: block; }
+    .dropdown a {
+      display: block;
+      padding: 11px 22px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .dropdown a:last-child { border-bottom: none; }
+    .dropdown a:hover { background: var(--purple-pale); color: var(--purple); }
+    .nav-phone {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--purple);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .nav-phone:hover { color: var(--charcoal); }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      position: relative;
+      height: 380px;
+      background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(20,10,40,0.7) 0%, rgba(20,10,40,0.45) 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--white);
+    }
+    .page-hero-content p {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .page-hero-content h1 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 6vw, 70px);
+      font-weight: 300;
+      line-height: 1.1;
+    }
+    .page-hero-content h1 em { font-style: italic; color: var(--purple-light); }
+    .breadcrumb {
+      margin-top: 20px;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--purple-light); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ─── INTRO ─── */
+    .intro-strip {
+      background: var(--purple);
+      padding: 40px 30px;
+      text-align: center;
+    }
+    .intro-strip h2 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .intro-strip h2 em { font-style: italic; color: var(--purple-light); }
+    .intro-strip p {
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      font-weight: 300;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    .gold-divider {
+      width: 50px; height: 2px;
+      background: var(--purple);
+      margin: 16px 0 24px;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* ─── TEAM SECTION ─── */
+    .team-section {
+      padding: 90px 30px;
+      background: var(--white);
+    }
+    .team-inner { max-width: 1100px; margin: 0 auto; }
+    .team-header { text-align: center; margin-bottom: 70px; }
+    .team-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.15;
+    }
+    .team-header h2 em { font-style: italic; color: var(--purple); }
+    .team-header .gold-divider { margin: 16px auto 20px; }
+    .team-header p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* Team cards */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid #ebe6de;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .team-card:hover {
+      box-shadow: 0 16px 50px rgba(124,58,237,0.12);
+      transform: translateY(-4px);
+    }
+    .team-card-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      filter: grayscale(15%);
+      transition: filter 0.4s;
+    }
+    .team-card:hover .team-card-img { filter: grayscale(0%); }
+    .team-card-body { padding: 28px 28px 24px; }
+    .team-card-name {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .team-card-title {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .team-card-divider {
+      width: 36px; height: 2px;
+      background: var(--purple);
+      margin-bottom: 18px;
+    }
+    .team-detail {
+      margin-bottom: 12px;
+    }
+    .team-detail-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .team-detail p, .team-detail ul {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .team-detail ul { padding-left: 18px; }
+    .team-detail ul li { margin-bottom: 3px; }
+    .team-bio {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #f0ece6;
+    }
+
+    /* Featured card (Dr. Laurie — spans 2 cols on wide) */
+    .team-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+    }
+    .team-card.featured .team-card-img {
+      height: 100%;
+      min-height: 400px;
+    }
+
+    /* ─── DIVIDER BAND ─── */
+    .divider-band {
+      background: var(--off-white);
+      border-top: 1px solid #ebe6de;
+      border-bottom: 1px solid #ebe6de;
+      padding: 50px 30px;
+      text-align: center;
+    }
+    .divider-band h3 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    .divider-band h3 em { font-style: italic; color: var(--purple); }
+    .divider-band p {
+      font-size: 14px;
+      color: var(--mid);
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    /* ─── CONTACT SECTION ─── */
+    .contact-section {
+      padding: 90px 30px;
+      background: var(--white);
+    }
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    /* Contact info column */
+    .contact-info h2 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .contact-info h2 em { font-style: italic; color: var(--purple); }
+    .contact-info .gold-divider { margin: 16px 0 24px; }
+    .contact-info p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .contact-block {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--purple-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .contact-block-text h4 {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .contact-block-text p, .contact-block-text a {
+      font-size: 15px;
+      color: var(--charcoal);
+      font-weight: 400;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+    .contact-block-text a:hover { color: var(--purple); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+      margin-top: 6px;
+    }
+    .hours-row {
+      display: contents;
+    }
+    .hours-day {
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 500;
+    }
+    .hours-time {
+      font-size: 13px;
+      color: var(--charcoal);
+    }
+
+    /* Contact form */
+    .contact-form-wrap h3 {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .contact-form-wrap h3 em { font-style: italic; color: var(--purple); }
+    .contact-form-wrap .gold-divider { margin: 12px 0 28px; }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--mid);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ddd8d0;
+      background: var(--off-white);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--purple);
+      background: var(--white);
+    }
+    .form-group textarea { height: 130px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--purple);
+      color: var(--white);
+      border: 2px solid var(--purple);
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      margin-top: 6px;
+    }
+    .btn-submit:hover { background: transparent; color: var(--purple); }
+
+    .form-disclaimer {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 14px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ─── MAP ─── */
+    .map-section { height: 400px; background: #e8e4de; position: relative; }
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #141414;
+      color: rgba(255,255,255,0.5);
+      padding: 50px 30px 30px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .brand-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .footer-brand .brand-sub {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 18px;
+    }
+    .footer-brand p { font-size: 13px; line-height: 1.7; }
+    .footer-links h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 9px; }
+    .footer-links ul li a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+    .footer-links ul li a:hover { color: var(--purple-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1000px) {
+      .team-card.featured {
+        grid-column: span 1;
+        display: block;
+      }
+      .team-card.featured .team-card-img { height: 300px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 50px; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <a href="tel:4236487546">Call Us: (423) 648-7546</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    Chattanooga, Tennessee
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="text-decoration:none;">
+        <span>Medical Aesthetics
+          <small>of Chattanooga</small>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="aesthetics.html">Aesthetics <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="#" data-page="chattaesthetics-botox">Botox Cosmetic</a>
+            <a href="#" data-page="chattaesthetics-peels">Peels</a>
+            <a href="#" data-page="chattaesthetics-xeomin">Xeomin</a>
+            <a href="#" data-page="chattaesthetics-lipo-b">Lipo-B Injections</a>
+            <a href="#" data-page="chattaesthetics-fillers">Fillers</a>
+            <a href="#" data-page="chattaesthetics-kybella">Kybella</a>
+            <a href="#" data-page="chattaesthetics-mlis">M'lis Body Wrap</a>
+            <a href="#" data-page="chattaesthetics-prp">PRP – Platelet Rich Plasma</a>
+            <a href="#" data-page="chattaesthetics-microneedling">Microneedling</a>
+            <a href="#" data-page="chattaesthetics-laser-resurfacing">Laser Face Resurfacing</a>
+            <a href="#" data-page="chattaesthetics-thermi-smooth">ThermiSmooth</a>
+            <a href="#" data-page="chattaesthetics-laser-hair-removal">Laser Hair Removal</a>
+            <a href="#" data-page="chattaesthetics-lumecca">Lumecca IPL</a>
+            <a href="#" data-page="chattaesthetics-morpheus8">Morpheus8</a>
+            <a href="#" data-page="chattaesthetics-weight-loss">Medical Weight Loss</a>
+            <a href="#" data-page="chattaesthetics-obagi">Obagi Skintrinsiq</a>
+            <a href="#" data-page="chattaesthetics-bio-hrt">Bio-HRT</a>
+            <a href="#" data-page="chattaesthetics-ultherapy">Ultherapy</a>
+            <a href="#" data-page="chattaesthetics-peptide">Peptide Therapy</a>
+            <a href="#" data-page="chattaesthetics-teeth-whitening">Teeth Whitening</a>
+            <a href="#" data-page="chattaesthetics-cellenis">Cellenis® Derma PRP</a>
+            <a href="#" data-page="chattaesthetics-skincare">Neocutis &amp; Dermamade Skincare</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">CoolSculpting <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="#" data-page="chattaesthetics-coolsculpting">Overview</a>
+            <a href="#" data-page="chattaesthetics-coolsculpting-faq">CoolSculpting FAQ's</a>
+            <a href="#" data-page="chattaesthetics-coolsculpting-results">CoolSculpting Results</a>
+          </div>
+        </li>
+        <li><a href="#" data-page="chattaesthetics-empower">Empower</a></li>
+        <li>
+          <a href="#" class="active">About Us <span class="chevron">▾</span></a>
+          <div class="dropdown">
+            <a href="#team">Meet Our Team</a>
+            <a href="#contact">Contact Us</a>
+          </div>
+        </li>
+      </ul>
+      <a href="tel:4236487546" class="nav-phone">(423) 648-7546</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <p>Medical Aesthetics of Chattanooga</p>
+      <h1>About <em>Our Team</em></h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        About Us
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+    <h2>The Best Team <em>On Your Side</em></h2>
+    <p>We have a highly experienced team at Medical Aesthetics of Chattanooga. Our treatments are conducted under a medical doctor's supervision so you can rest assured that all required safety and quality measures are implemented.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MEET OUR TEAM                               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="team-section" id="team">
+    <div class="team-inner">
+
+      <div class="team-header">
+        <p class="section-eyebrow">Our Experts</p>
+        <h2>Meet Our <em>Team</em></h2>
+        <div class="gold-divider"></div>
+        <p>Each member of our team brings deep clinical expertise and a genuine passion for helping you look and feel your very best.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <!-- April Johnson — FEATURED (full width) -->
+        <div class="team-card featured">
+          <img class="team-card-img"
+               src="https://chattaesthetics.com/wp-content/uploads/2024/02/April-Johnson-injector.jpg"
+               alt="April Johnson, Nurse Injector"
+               onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80'" />
+          <div class="team-card-body">
+            <div class="team-card-name">April Johnson</div>
+            <div class="team-card-title">Nurse Injector</div>
+            <div class="team-card-divider"></div>
+
+            <div class="team-detail">
+              <div class="team-detail-label">Education</div>
+              <p>Bachelor of Science in Nursing from UTC, 1998</p>
+            </div>
+            <div class="team-detail">
+              <div class="team-detail-label">Specialty Training</div>
+              <p>Certified through the AAFE (American Academy of Facial Esthetics). Trained in neurotoxins, dermal fillers, PDO threads, PRP, Ultherapy, IPL, RF microneedling, and CoolSculpting.</p>
+            </div>
+            <div class="team-bio">
+              April brings 26 years of experience in the medical field. She is detail-oriented and passionate about increasing her clients' confidence and self-esteem. Outside the clinic, April is a certified personal trainer and Cycle instructor who enjoys running, staying active, and is an avid dog lover.
+            </div>
+          </div>
+        </div>
+
+        <!-- Dr. Laurie Davis -->
+        <div class="team-card featured">
+          <img class="team-card-img"
+               src="dr-laurie-davis.jpeg"
+               alt="Dr. Laurie Davis, DNP, FNP" />
+          <div class="team-card-body">
+            <div class="team-card-name">Dr. Laurie Davis</div>
+            <div class="team-card-title">DNP, FNP</div>
+            <div class="team-card-divider"></div>
+
+            <div class="team-detail">
+              <div class="team-detail-label">Education</div>
+              <ul>
+                <li>BSN – East Tennessee State University</li>
+                <li>MSN – East Tennessee State University</li>
+                <li>DNP – Doctorate in Nursing Practice, Maryville University, 2016</li>
+              </ul>
+            </div>
+            <div class="team-detail">
+              <div class="team-detail-label">Specialty Training</div>
+              <p>CoolSculpting, Bioidentical HRT, joint injections, Botox, laser therapy, peptide therapy, Cellenis Derma Fillers, and extensive continuing education.</p>
+            </div>
+            <div class="team-detail">
+              <div class="team-detail-label">Certifications</div>
+              <p>ANCC Certified · Licensed in Georgia &amp; Tennessee · Sigma Theta Tau · Phi Kappa Phi</p>
+            </div>
+            <div class="team-bio">
+              Passionate about achieving a natural appearance and enhancing your beauty to help you look and feel your best. Enjoys knitting, active church involvement, and treasures time with family — a mother of two sons and grandmother to one granddaughter. Conversational Spanish speaker.
+            </div>
+          </div>
+        </div>
+
+        <!-- Sarah Wallin -->
+        <div class="team-card">
+          <img class="team-card-img"
+               src="https://chattaesthetics.com/wp-content/uploads/2017/10/Sarah-Wallin.jpg"
+               alt="Sarah Wallin, Certified Medical Assistant"
+               onerror="this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80'" />
+          <div class="team-card-body">
+            <div class="team-card-name">Sarah Wallin</div>
+            <div class="team-card-title">Certified Medical Assistant</div>
+            <div class="team-card-divider"></div>
+            <div class="team-detail">
+              <div class="team-detail-label">Certifications</div>
+              <p>CoolSculpting · Ulthera · ThermiSmooth · Aerolase Laser</p>
+            </div>
+            <div class="team-bio">
+              Sarah has been a Certified Medical Assistant for over ten years and has been with Medical Aesthetics of Chattanooga since our very beginning. She enjoys spending time with her family and is a devoted Disney enthusiast.
+            </div>
+          </div>
+        </div>
+
+        <!-- Bruce Pendley, MD -->
+        <div class="team-card">
+          <img class="team-card-img"
+               src="https://chattaesthetics.com/wp-content/uploads/2017/10/Dr-Pendley.jpg"
+               alt="Bruce Pendley, MD"
+               onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80'" />
+          <div class="team-card-body">
+            <div class="team-card-name">Bruce Pendley, MD</div>
+            <div class="team-card-title">Medical Doctor</div>
+            <div class="team-card-divider"></div>
+            <div class="team-detail">
+              <div class="team-detail-label">Education</div>
+              <ul>
+                <li>Chemistry — Emory University, 1983</li>
+                <li>MD — Medical College of Georgia, 1987</li>
+                <li>Family Practice Residency — Rome, GA (1987–1990)</li>
+              </ul>
+            </div>
+            <div class="team-detail">
+              <div class="team-detail-label">Certifications</div>
+              <p>AAFP – American Academy of Family Physicians</p>
+            </div>
+            <div class="team-bio">
+              Specialty trained in Hospice &amp; Palliative Care. Former Boy Scout and Scoutmaster. Married with two sons — loves to garden and raises bees.
+            </div>
+          </div>
+        </div>
+
+        <!-- Randy Heisser, MD -->
+        <div class="team-card">
+          <img class="team-card-img"
+               src="https://chattaesthetics.com/wp-content/uploads/2017/10/Dr-Heisser.jpg"
+               alt="Randy Heisser, MD"
+               onerror="this.src='https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&q=80'" />
+          <div class="team-card-body">
+            <div class="team-card-name">Randy Heisser, MD</div>
+            <div class="team-card-title">Medical Doctor</div>
+            <div class="team-card-divider"></div>
+            <div class="team-detail">
+              <div class="team-detail-label">Education</div>
+              <p>Residency – LSU School of Medicine, Shreveport, LA</p>
+            </div>
+            <div class="team-detail">
+              <div class="team-detail-label">Certifications</div>
+              <p>Family Medicine · Fellowship – Willis Knighton Hospital / LSUMC Shreveport</p>
+            </div>
+            <div class="team-bio">
+              Experienced in Hospice Care and dedicated to compassionate, whole-person medicine. Born in Louisiana with a love for outdoor activities and water sports.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /team-grid -->
+    </div>
+  </section>
+
+  <!-- DIVIDER BAND -->
+  <div class="divider-band">
+    <p class="section-eyebrow" style="text-align:center;">We're Here For You</p>
+    <h3>Ready to Take the <em>First Step?</em></h3>
+    <p>Reach out to our team — we'd love to help you achieve your aesthetic goals.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CONTACT US                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2>Contact <em>Us</em></h2>
+        <div class="gold-divider"></div>
+        <p>Whether you have a question about a treatment, want to schedule a consultation, or just want to learn more — our friendly team is happy to help.</p>
+
+        <div class="contact-block">
+          <div class="contact-icon">📍</div>
+          <div class="contact-block-text">
+            <h4>Our Location</h4>
+            <p>Medical Aesthetics of Chattanooga<br>Chattanooga, Tennessee</p>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">📞</div>
+          <div class="contact-block-text">
+            <h4>Phone</h4>
+            <a href="tel:4236487546">(423) 648-7546</a>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-block-text">
+            <h4>Office Hours</h4>
+            <div class="hours-grid">
+              <span class="hours-day">Monday</span>      <span class="hours-time">9:00 AM – 5:00 PM</span>
+              <span class="hours-day">Tuesday</span>     <span class="hours-time">9:00 AM – 5:00 PM</span>
+              <span class="hours-day">Wednesday</span>   <span class="hours-time">9:00 AM – 5:00 PM</span>
+              <span class="hours-day">Thursday</span>    <span class="hours-time">9:00 AM – 5:00 PM</span>
+              <span class="hours-day">Friday</span>      <span class="hours-time">9:00 AM – 3:00 PM</span>
+              <span class="hours-day">Saturday</span>    <span class="hours-time">By Appointment</span>
+              <span class="hours-day">Sunday</span>      <span class="hours-time">Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-icon">💳</div>
+          <div class="contact-block-text">
+            <h4>Financing Available</h4>
+            <p>We accept CareCredit for flexible payment options.</p>
+            <a href="https://www.carecredit.com/apply" target="_blank" rel="noopener"
+               style="display:inline-block;margin-top:10px;">
+              <img src="https://www.carecredit.com/adtoolkit/assets/pages/library/buttons/350x213/CareCredit_Button_ApplyNow_350x213_g_v1.png"
+                   alt="Apply for CareCredit" style="height:44px;" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap">
+        <h3>Request a <em>Free Consultation</em></h3>
+        <div class="gold-divider"></div>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="(423) 000-0000" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Treatment of Interest</label>
+            <select id="service">
+              <option value="">— Select a treatment —</option>
+              <option>Botox Cosmetic</option>
+              <option>Fillers</option>
+              <option>CoolSculpting</option>
+              <option>Morpheus8</option>
+              <option>Microneedling</option>
+              <option>Lumecca IPL</option>
+              <option>Laser Hair Removal</option>
+              <option>Medical Weight Loss</option>
+              <option>Bio-HRT</option>
+              <option>Peptide Therapy</option>
+              <option>Ultherapy</option>
+              <option>Kybella</option>
+              <option>Peels</option>
+              <option>Xeomin</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" placeholder="Tell us a little about your goals or any questions you have..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Send My Request</button>
+          <p class="form-disclaimer">*These programs are not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary. By submitting this form you consent to being contacted by our team.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <div class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d209714.87696898455!2d-85.4068!3d35.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88605e3de67d4b17%3A0x2a55a88e12ef5e33!2sChattanooga%2C%20TN!5e0!3m2!1sen!2sus!4v1680000000000"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Chattanooga, Tennessee Map">
+    </iframe>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">Medical Aesthetics</div>
+        <div class="brand-sub">of Chattanooga</div>
+        <p>Safe, proven aesthetic treatments to help you look and feel your best — right here in Chattanooga, Tennessee.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="#" data-page="chattaesthetics-botox">Botox Cosmetic</a></li>
+          <li><a href="#" data-page="chattaesthetics-fillers">Fillers</a></li>
+          <li><a href="#" data-page="chattaesthetics-coolsculpting">CoolSculpting</a></li>
+          <li><a href="#" data-page="chattaesthetics-morpheus8">Morpheus8</a></li>
+          <li><a href="#" data-page="chattaesthetics-microneedling">Microneedling</a></li>
+          <li><a href="#" data-page="chattaesthetics-lumecca">Lumecca IPL</a></li>
+          <li><a href="#" data-page="chattaesthetics-laser-hair-removal">Laser Hair Removal</a></li>
+          <li><a href="#" data-page="chattaesthetics-weight-loss">Medical Weight Loss</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#team">Meet Our Team</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#" data-page="chattaesthetics-empower">Empower</a></li>
+          <li><a href="#" data-page="chattaesthetics-coolsculpting-faq">CoolSculpting FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Medical Aesthetics of Chattanooga. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.textContent = '✓ Request Sent!';
+      btn.style.background = '#22c55e';
+      btn.style.borderColor = '#22c55e';
+      setTimeout(() => {
+        btn.textContent = 'Send My Request';
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
