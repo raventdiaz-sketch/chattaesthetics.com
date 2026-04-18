@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoolSculpting | Medical Aesthetics of Chattanooga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --p: #7c3aed; --pl: #a78bfa; --pp: #ede9fe;
+      --w: #fff; --ow: #faf9f7; --ch: #2c2c2c; --mid: #5a5a5a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--ch); background: var(--w); overflow-x: hidden; }
+
+    /* NAV */
+    .top-bar { background: var(--ch); color: var(--pl); text-align: center; padding: 8px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+    .top-bar a { color: var(--pl); text-decoration: none; }
+    nav { background: var(--w); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; height: 80px; }
+    .nav-logo { text-decoration: none; }
+    .nav-logo span { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ch); line-height: 1.2; }
+    .nav-logo small { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--p); font-weight: 400; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: flex; align-items: center; gap: 5px; padding: 28px 16px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--ch); text-decoration: none; transition: color .25s; white-space: nowrap; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { color: var(--p); }
+    .nav-links > li > a .ch { font-size: 8px; transition: transform .25s; }
+    .nav-links > li:hover > a .ch { transform: rotate(180deg); }
+    .drop { display: none; position: absolute; top: 100%; left: 0; background: var(--w); min-width: 230px; box-shadow: 0 10px 40px rgba(0,0,0,0.12); border-top: 2px solid var(--p); z-index: 999; }
+    .nav-links > li:hover .drop { display: block; }
+    .drop a { display: block; padding: 11px 22px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; color: var(--ch); text-decoration: none; border-bottom: 1px solid #f0ede8; transition: background .2s, color .2s; }
+    .drop a:last-child { border-bottom: none; }
+    .drop a:hover { background: var(--pp); color: var(--p); }
+    .nav-phone { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--p); text-decoration: none; }
+    .nav-phone:hover { color: var(--ch); }
+
+    /* HERO */
+    .hero { position: relative; height: 420px; background: url('https://images.unsplash.com/photo-1550534791-2677533605ab?w=1600&q=80') center/cover; display: flex; align-items: center; justify-content: center; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,10,40,.65), rgba(20,10,40,.4)); }
+    .hero-content { position: relative; z-index: 1; text-align: center; color: var(--w); }
+    .hero-content p { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--pl); font-weight: 600; margin-bottom: 14px; }
+    .hero-content h1 { font-family: var(--serif); font-size: clamp(40px, 7vw, 76px); font-weight: 300; line-height: 1.1; }
+    .hero-content h1 em { font-style: italic; color: var(--pl); }
+    .breadcrumb { margin-top: 18px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.5); }
+    .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--pl); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* TAB NAV */
+    .tab-nav { background: var(--ch); display: flex; justify-content: center; gap: 0; }
+    .tab-btn { padding: 18px 36px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; font-family: var(--sans); background: transparent; color: rgba(255,255,255,.55); border: none; border-bottom: 3px solid transparent; cursor: pointer; transition: all .25s; }
+    .tab-btn:hover { color: var(--w); }
+    .tab-btn.active { color: var(--pl); border-bottom-color: var(--pl); }
+
+    /* SECTIONS */
+    .tab-section { display: none; }
+    .tab-section.active { display: block; }
+
+    /* SHARED */
+    section { padding: 80px 30px; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--p); font-weight: 600; margin-bottom: 10px; }
+    h2.title { font-family: var(--serif); font-size: clamp(28px, 4vw, 48px); font-weight: 300; line-height: 1.2; margin-bottom: 14px; }
+    h2.title em { font-style: italic; color: var(--p); }
+    .divider { width: 50px; height: 2px; background: var(--p); margin: 14px 0 24px; }
+    p.lead { font-size: 15px; color: var(--mid); line-height: 1.85; font-weight: 300; max-width: 760px; }
+
+    /* OVERVIEW */
+    .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .overview-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .feature-list { list-style: none; margin-top: 24px; }
+    .feature-list li { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #ebe6de; font-size: 14px; color: var(--mid); line-height: 1.6; font-weight: 300; }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li::before { content: '✦'; color: var(--p); font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+
+    /* STATS BAND */
+    .stats-band { background: var(--p); padding: 60px 30px; }
+    .stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+    .stat-num { font-family: var(--serif); font-size: 56px; font-weight: 300; color: var(--w); line-height: 1; }
+    .stat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.7); margin-top: 8px; font-weight: 500; }
+
+    /* HOW IT WORKS */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+    .step { background: var(--ow); padding: 32px 26px; border-left: 3px solid var(--p); }
+    .step-num { font-family: var(--serif); font-size: 48px; font-weight: 300; color: var(--p); line-height: 1; margin-bottom: 12px; }
+    .step h4 { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 10px; }
+    .step p { font-size: 13.5px; color: var(--mid); line-height: 1.75; font-weight: 300; }
+
+    /* FAQ */
+    .faq-section { background: var(--ow); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 50px; }
+    .faq-item { background: var(--w); border: 1px solid #ebe6de; overflow: hidden; }
+    .faq-q { width: 100%; text-align: left; padding: 20px 24px; font-size: 14px; font-weight: 600; font-family: var(--sans); color: var(--ch); background: var(--w); border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; transition: background .2s; }
+    .faq-q:hover { background: var(--pp); color: var(--p); }
+    .faq-q.open { background: var(--p); color: var(--w); }
+    .faq-q .icon { font-size: 20px; flex-shrink: 0; transition: transform .25s; }
+    .faq-q.open .icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; }
+    .faq-a.open { max-height: 300px; }
+    .faq-a p { padding: 16px 24px 20px; font-size: 13.5px; color: var(--mid); line-height: 1.8; font-weight: 300; }
+
+    /* RESULTS */
+    .results-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .results-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 50px; }
+    .result-card { background: var(--ow); padding: 28px 22px; border-top: 3px solid var(--p); }
+    .result-card h4 { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 10px; }
+    .result-card p { font-size: 13.5px; color: var(--mid); line-height: 1.75; font-weight: 300; }
+
+    /* CTA */
+    .cta { background: var(--ch); padding: 80px 30px; text-align: center; position: relative; overflow: hidden; }
+    .cta::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=50') center/cover; opacity: .06; }
+    .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 50px); font-weight: 300; color: var(--w); margin-bottom: 14px; }
+    .cta h2 em { font-style: italic; color: var(--pl); }
+    .cta p { color: rgba(255,255,255,.65); font-size: 15px; line-height: 1.8; font-weight: 300; margin-bottom: 30px; }
+    .btn { display: inline-block; padding: 15px 40px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; text-decoration: none; margin: 0 8px 10px; border: 2px solid var(--p); transition: all .3s; }
+    .btn-solid { background: var(--p); color: var(--w); }
+    .btn-solid:hover { background: transparent; color: var(--pl); }
+    .btn-outline { background: transparent; color: var(--w); border-color: rgba(255,255,255,.35); }
+    .btn-outline:hover { border-color: var(--pl); color: var(--pl); }
+    .disclaimer { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 30px; font-style: italic; line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: #141414; color: rgba(255,255,255,.5); padding: 50px 30px 30px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand .bn { font-family: var(--serif); font-size: 20px; color: var(--w); margin-bottom: 4px; }
+    .footer-brand .bs { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--pl); margin-bottom: 16px; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; }
+    .footer-links h4 { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--pl); font-weight: 600; margin-bottom: 16px; }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 8px; }
+    .footer-links ul li a { color: rgba(255,255,255,.5); text-decoration: none; font-size: 12px; transition: color .2s; }
+    .footer-links ul li a:hover { color: var(--pl); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; text-align: center; font-size: 11px; color: rgba(255,255,255,.25); max-width: 1100px; margin: 0 auto; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .overview-grid, .results-intro, .faq-grid, .footer-inner { grid-template-columns: 1fr; }
+      .steps-grid, .results-grid, .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .steps-grid, .results-grid, .stats-grid { grid-template-columns: 1fr; }
+      .tab-btn { padding: 14px 16px; font-size: 10px; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar"><a href="tel:4236487546">Call Us: (423) 648-7546</a> &nbsp;|&nbsp; Chattanooga, Tennessee</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span>Medical Aesthetics<small>of Chattanooga</small></span></a>
+    <ul class="nav-links">
+      <li>
+        <a href="aesthetics.html">Aesthetics <span class="ch">▾</span></a>
+        <div class="drop">
+          <a href="#">Botox Cosmetic</a><a href="#">Peels</a><a href="#">Xeomin</a><a href="#">Lipo-B Injections</a>
+          <a href="#">Fillers</a><a href="#">Kybella</a><a href="#">M'lis Body Wrap</a><a href="#">PRP – Platelet Rich Plasma</a>
+          <a href="#">Microneedling</a><a href="#">Laser Face Resurfacing</a><a href="#">ThermiSmooth</a>
+          <a href="#">Laser Hair Removal</a><a href="#">Lumecca IPL</a><a href="#">Morpheus8</a>
+          <a href="#">Medical Weight Loss</a><a href="#">Obagi Skintrinsiq</a><a href="#">Bio-HRT</a>
+          <a href="#">Ultherapy</a><a href="#">Peptide Therapy</a><a href="#">Teeth Whitening</a>
+          <a href="#">Cellenis® Derma PRP</a><a href="#">Neocutis &amp; Dermamade Skincare</a>
+        </div>
+      </li>
+      <li>
+        <a href="coolsculpting.html" class="active">CoolSculpting <span class="ch">▾</span></a>
+        <div class="drop">
+          <a href="coolsculpting.html#overview">Overview</a>
+          <a href="coolsculpting.html#faq">FAQ's</a>
+          <a href="coolsculpting.html#results">Results</a>
+        </div>
+      </li>
+      <li><a href="#">Empower</a></li>
+      <li>
+        <a href="about.html">About Us <span class="ch">▾</span></a>
+        <div class="drop">
+          <a href="about.html#team">Meet Our Team</a>
+          <a href="about.html#contact">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    <a href="tel:4236487546" class="nav-phone">(423) 648-7546</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <p>Medical Aesthetics of Chattanooga</p>
+    <h1>Cool<em>Sculpting</em></h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span>CoolSculpting
+    </div>
+  </div>
+</div>
+
+<!-- TAB NAVIGATION -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab('faq')">FAQ's</button>
+  <button class="tab-btn" onclick="showTab('results')">Results</button>
+</div>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<div class="tab-section active" id="overview">
+
+  <section style="background:var(--w)">
+    <div class="inner overview-grid">
+      <div>
+        <p class="eyebrow">Non-Invasive Fat Reduction</p>
+        <h2 class="title">Say Goodbye to<br><em>Stubborn Fat</em></h2>
+        <div class="divider"></div>
+        <p class="lead">No matter how much you eat healthy and exercise, it's virtually impossible to lose those annoying muffin tops, love handles, and belly pooch. CoolSculpting targets fat cells alone, reducing them in an easy, non-intrusive fashion that exercise and diet may not achieve as quickly or effectively.</p>
+        <ul class="feature-list" style="margin-top:28px;">
+          <li>FDA-cleared, patented procedure developed by Harvard scientists</li>
+          <li>No knives, no needles, no scars — zero surgery required</li>
+          <li>Minimal to no downtime — return to your day immediately</li>
+          <li>Each treatment takes approximately one hour</li>
+          <li>Results visible within 2–4 months as fat cells are naturally expelled</li>
+          <li>Long-term results with no pills or supplements required</li>
+        </ul>
+      </div>
+      <img class="overview-img" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="CoolSculpting treatment" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="stats-grid">
+      <div><div class="stat-num">1000+</div><div class="stat-label">Treatments Completed</div></div>
+      <div><div class="stat-num">60%</div><div class="stat-label">Better Results with Z-Wave</div></div>
+      <div><div class="stat-num">2–4</div><div class="stat-label">Months to Full Results</div></div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section style="background:var(--ow)">
+    <div class="inner">
+      <p class="eyebrow">The Process</p>
+      <h2 class="title">How <em>CoolSculpting</em> Works</h2>
+      <div class="divider"></div>
+      <p class="lead">A targeted cooling process called Cryolipolysis combats fat cells underneath the skin, freezing and reducing them — while leaving healthy skin cells unharmed.</p>
+      <div class="steps-grid">
+        <div class="step"><div class="step-num">01</div><h4>Targeted Cooling</h4><p>A non-invasive applicator is placed on the treatment area. Controlled cooling is delivered precisely to the subcutaneous fat layer beneath the skin.</p></div>
+        <div class="step"><div class="step-num">02</div><h4>Fat Cell Death</h4><p>Fat cells are more vulnerable to cold than surrounding tissues. The cooled cells undergo apoptosis — natural controlled cell death — while skin, nerves and muscles remain unaffected.</p></div>
+        <div class="step"><div class="step-num">03</div><h4>Z-Wave Technology</h4><p>Immediately after treatment, we apply Z-Wave technology — improving your results by up to 60% compared to manual massage by evenly distributing fat cells for a smooth, even outcome.</p></div>
+        <div class="step"><div class="step-num">04</div><h4>Natural Expulsion</h4><p>Over the following weeks and months, your body naturally processes and eliminates the dead fat cells through its normal metabolic processes.</p></div>
+        <div class="step"><div class="step-num">05</div><h4>Visible Results</h4><p>Most patients see a noticeable fat reduction within 2–4 months. Additional sessions can enhance results further if desired.</p></div>
+        <div class="step"><div class="step-num">06</div><h4>Long-Term</h4><p>As long as you maintain your normal diet and exercise, your CoolSculpting results should remain stable long-term — fat cells don't come back once eliminated.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUB 1000 -->
+  <section style="background:var(--w)">
+    <div class="inner" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="CoolSculpting Chattanooga" style="width:100%;aspect-ratio:4/3;object-fit:cover;" loading="lazy" />
+      <div>
+        <p class="eyebrow">Chattanooga's Elite Provider</p>
+        <h2 class="title">Club <em>1000</em> Designation</h2>
+        <div class="divider"></div>
+        <p class="lead">Medical Aesthetics of Chattanooga has achieved the prestigious Club 1000 designation — meaning we have surpassed 1,000 CoolSculpting treatments. Our staff has completed the rigorous CoolSculpting University training and can treat virtually any area. We are the only place in Chattanooga that offers Z-Wave technology after every CoolSculpting treatment.</p>
+        <a href="about.html#contact" class="btn btn-solid" style="margin-top:28px;display:inline-block;">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<div class="tab-section" id="faq">
+  <section style="background:var(--ow)">
+    <div class="inner">
+      <p class="eyebrow">Your Questions Answered</p>
+      <h2 class="title">CoolSculpting <em>FAQ's</em></h2>
+      <div class="divider"></div>
+      <p class="lead">Everything you need to know about CoolSculpting — how it works, what to expect, and why it's right for you.</p>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is CoolSculpting? <span class="icon">+</span></button>
+          <div class="faq-a"><p>CoolSculpting is a non-invasive procedure that effectively reduces fat bulges in targeted areas using advanced cooling technology. There are no needles, no incisions, no anesthesia, and minimal recovery time. It is performed in a medical office under physician supervision.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How does CoolSculpting work? <span class="icon">+</span></button>
+          <div class="faq-a"><p>A non-invasive applicator delivers precisely controlled cooling to the treatment area. As heat is extracted, the subcutaneous fat cools and fat cell death is triggered through a process called Cryolipolysis. The result is a visible fat reduction within two to four months in most patients.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is Cryolipolysis? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Cryolipolysis is based on the principle that fat cells are more vulnerable to energy extraction (cooling) than surrounding tissues. The cooled fat cells undergo apoptosis (controlled cell death) and are gradually expelled through the body's normal metabolic processes, reducing the fat layer over time.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How is it different from other procedures? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Unlike lasers, radiofrequency, or focused ultrasound, CoolSculpting's controlled cooling targets only fat cells without affecting surrounding tissue. It does not burn, shatter, or extract non-fat cells, so there is no downtime needed for your body to heal.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is there clinical evidence it works? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Yes. ZELTIQ™ has performed controlled clinical studies showing that CoolSculpting is an effective way to reduce fat bulges in properly selected patients. Since becoming commercially available, these results have been repeated with millions of patients worldwide.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How cold does it get? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Lipids in fat cells crystallize at warmer temperatures than other water-containing cells. This is how Cryolipolysis selectively targets only fat cells for destruction while sparing skin, muscle, and nerves. The CoolSculpting system precisely controls the rate of energy extraction to ensure safety.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Is there any downtime? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Unlike many procedures, CoolSculpting requires minimal to no downtime. After your treatment you can typically return to your normal daily activities right away. Each treatment lasts about one hour — easily fit into a lunch break.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How long until I see results? <span class="icon">+</span></button>
+          <div class="faq-a"><p>After one visit you'll typically see a noticeable fat reduction. It takes a few months to fully realize the effects, as it takes that long for your body to naturally dispose of the fat cells. You can see even more improvement with additional appointments if your doctor deems it appropriate.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are results long-term? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Yes. Fat cells that are frozen during CoolSculpting gradually die off and leave the body through its natural expulsion process — which is why the results can be long-term. As long as you maintain your normal diet and exercise, your results should remain stable. Untreated areas will have no change in fat cell distribution.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What is Z-Wave technology? <span class="icon">+</span></button>
+          <div class="faq-a"><p>We are the only CoolSculpting provider in Chattanooga that uses Z-Wave technology after every treatment. Instead of manual massage, Z-Wave evenly distributes the fat cells and creates a smoother result — improving outcomes by up to 60%. We never perform a CoolSculpting treatment without it.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ RESULTS ═══════════ -->
+<div class="tab-section" id="results">
+  <section style="background:var(--w)">
+    <div class="inner results-intro">
+      <div>
+        <p class="eyebrow">Real Outcomes</p>
+        <h2 class="title">CoolSculpting <em>Results</em></h2>
+        <div class="divider"></div>
+        <p class="lead">Some diets and fat-reduction treatments can leave you swinging back and forth between "before" and "after" versions of yourself. CoolSculpting results speak for themselves — dramatic, visible differences from every angle, with long-term stability you can count on.</p>
+        <p class="lead" style="margin-top:16px;">At Medical Aesthetics of Chattanooga, our Club 1000 status means we have the experience and expertise to deliver the best possible results for every patient — with Z-Wave technology applied after every treatment for optimal smoothness.</p>
+      </div>
+      <img class="results-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="CoolSculpting results" loading="lazy" />
+    </div>
+  </section>
+
+  <div class="stats-band">
+    <div class="stats-grid">
+      <div><div class="stat-num">1000+</div><div class="stat-label">Successful Treatments</div></div>
+      <div><div class="stat-num">Up to 25%</div><div class="stat-label">Fat Reduction Per Session</div></div>
+      <div><div class="stat-num">2–4 mo</div><div class="stat-label">To See Full Results</div></div>
+    </div>
+  </div>
+
+  <section style="background:var(--ow)">
+    <div class="inner">
+      <p class="eyebrow">What to Expect</p>
+      <h2 class="title">Potentially <em>Long-Term Results</em><br>You'll Love From Every Angle</h2>
+      <div class="divider"></div>
+      <div class="results-grid">
+        <div class="result-card"><h4>Noticeable Reduction</h4><p>After one visit, you'll typically see a noticeable reduction of fat in the treated area. Results become more dramatic over the following months as your body naturally eliminates dead fat cells.</p></div>
+        <div class="result-card"><h4>Natural-Looking</h4><p>Because fat cells are eliminated gradually through your body's own processes, results look completely natural — not sudden or surgical. Friends and family will notice you look great without knowing why.</p></div>
+        <div class="result-card"><h4>Lasting Change</h4><p>Once fat cells are eliminated, they're gone for good. As long as you maintain your normal lifestyle, your long-term CoolSculpting results should remain stable — not a temporary fix.</p></div>
+        <div class="result-card"><h4>Treatable Areas</h4><p>Our trained team can treat virtually any area with CoolSculpting — including abdomen, flanks (love handles), inner and outer thighs, upper arms, chin, bra fat, and back fat.</p></div>
+        <div class="result-card"><h4>Enhanced by Z-Wave</h4><p>Our exclusive use of Z-Wave post-treatment technology improves your results by up to 60% — creating a smoother, more even outcome than manual massage alone could achieve.</p></div>
+        <div class="result-card"><h4>Multiple Sessions</h4><p>You can see even more improvement with additional appointments if you and your physician decide it's right for your goals. Many patients choose to treat multiple areas across sessions.</p></div>
+      </div>
+      <p style="font-size:11px;color:#aaa;margin-top:36px;font-style:italic;text-align:center;">*Individual results may vary. These programs are not intended to diagnose, treat, cure, or prevent any disease.</p>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <p class="eyebrow" style="color:var(--pl);text-align:center;">Chattanooga's CoolSculpting Experts</p>
+    <h2>Ready for a <em>New You?</em></h2>
+    <p>Contact the professionals at Medical Aesthetics of Chattanooga today for a free consultation. We'll create a personalized CoolSculpting plan built around your goals.</p>
+    <a href="about.html#contact" class="btn btn-solid">Book Free Consultation</a>
+    <a href="tel:4236487546" class="btn btn-outline">Call (423) 648-7546</a>
+    <p class="disclaimer">*Individual results may vary. These programs are not intended to diagnose, treat, cure, or prevent any disease.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="bn">Medical Aesthetics</div>
+      <div class="bs">of Chattanooga</div>
+      <p>Safe, proven aesthetic treatments to help you look and feel your best — right here in Chattanooga, Tennessee.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#">Botox Cosmetic</a></li><li><a href="#">Fillers</a></li>
+        <li><a href="coolsculpting.html">CoolSculpting</a></li><li><a href="#">Morpheus8</a></li>
+        <li><a href="#">Microneedling</a></li><li><a href="#">Lumecca IPL</a></li>
+        <li><a href="#">Laser Hair Removal</a></li><li><a href="#">Medical Weight Loss</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html#team">Meet Our Team</a></li>
+        <li><a href="about.html#contact">Contact Us</a></li>
+        <li><a href="#">Empower</a></li>
+        <li><a href="coolsculpting.html#faq">CoolSculpting FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; Medical Aesthetics of Chattanooga. All rights reserved.</div>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop - 80, behavior: 'smooth' });
+  }
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+    if (!isOpen) { btn.classList.add('open'); ans.classList.add('open'); }
+  }
+</script>
+</body>
+</html>
