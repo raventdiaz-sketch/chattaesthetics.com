@@ -940,5 +940,9 @@
     });
   </script>
 
+  <script>
+    const hb=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
+    if(hb&&mn){hb.addEventListener('click',()=>{hb.classList.toggle('open');mn.classList.toggle('open');});}
+  </script>
 </body>
 </html>

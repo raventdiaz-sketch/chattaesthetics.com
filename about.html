@@ -643,7 +643,7 @@
             <a href="#" data-page="chattaesthetics-coolsculpting-results">CoolSculpting Results</a>
           </div>
         </li>
-        <li><a href="#" data-page="chattaesthetics-empower">Empower</a></li>
+        <li><a href="empower.html">Empower</a></li>
         <li>
           <a href="#" class="active">About Us <span class="chevron">▾</span></a>
           <div class="dropdown">
@@ -988,7 +988,7 @@
         <ul>
           <li><a href="#team">Meet Our Team</a></li>
           <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#" data-page="chattaesthetics-empower">Empower</a></li>
+          <li><a href="empower.html">Empower</a></li>
           <li><a href="#" data-page="chattaesthetics-coolsculpting-faq">CoolSculpting FAQ</a></li>
         </ul>
       </div>
@@ -1014,5 +1014,9 @@
     }
   </script>
 
+  <script>
+    const hb=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
+    if(hb&&mn){hb.addEventListener('click',()=>{hb.classList.toggle('open');mn.classList.toggle('open');});}
+  </script>
 </body>
 </html>

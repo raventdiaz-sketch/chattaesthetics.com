@@ -179,7 +179,7 @@
           <a href="coolsculpting.html#results">Results</a>
         </div>
       </li>
-      <li><a href="#">Empower</a></li>
+      <li><a href="empower.html">Empower</a></li>
       <li>
         <a href="about.html">About Us <span class="ch">▾</span></a>
         <div class="drop">
@@ -189,8 +189,35 @@
       </li>
     </ul>
     <a href="tel:4236487546" class="nav-phone">(423) 648-7546</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
   </div>
 </nav>
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mob-section">Aesthetics</div>
+    <a href="botox.html">Botox Cosmetic</a><a href="peels.html">Peels</a>
+    <a href="xeomin.html">Xeomin</a><a href="lipo-b.html">Lipo-B Injections</a>
+    <a href="fillers.html">Fillers</a><a href="kybella.html">Kybella</a>
+    <a href="mlis.html">M&#39;lis Body Wrap</a><a href="prp.html">PRP &#8211; Platelet Rich Plasma</a>
+    <a href="microneedling.html">Microneedling</a><a href="laser-resurfacing.html">Laser Face Resurfacing</a>
+    <a href="thermi-smooth.html">ThermiSmooth</a><a href="laser-hair-removal.html">Laser Hair Removal</a>
+    <a href="lumecca.html">Lumecca IPL</a><a href="morpheus8.html">Morpheus8</a>
+    <a href="weight-loss.html">Medical Weight Loss</a><a href="obagi.html">Obagi Skintrinsiq</a>
+    <a href="bio-hrt.html">Bio-HRT</a><a href="ultherapy.html">Ultherapy</a>
+    <a href="peptide.html">Peptide Therapy</a><a href="teeth-whitening.html">Teeth Whitening</a>
+    <a href="cellenis.html">Cellenis&#174; Derma PRP</a><a href="skincare.html">Neocutis &amp; Dermamade</a>
+    <div class="mob-section">CoolSculpting</div>
+    <a href="coolsculpting.html">Overview</a>
+    <a href="coolsculpting.html#faq">FAQ&#39;s</a>
+    <a href="coolsculpting.html#results">Results</a>
+    <div class="mob-section">Other</div>
+    <a href="empower.html">Empower</a>
+    <a href="about.html#team">Meet Our Team</a>
+    <a href="about.html#contact">Contact Us</a>
+    <a href="tel:4236487546" style="color:#7c3aed;font-weight:600;">(423) 648-7546</a>
+  </div>
 
 <!-- HERO -->
 <div class="hero">
@@ -405,7 +432,7 @@
       <ul>
         <li><a href="about.html#team">Meet Our Team</a></li>
         <li><a href="about.html#contact">Contact Us</a></li>
-        <li><a href="#">Empower</a></li>
+        <li><a href="empower.html">Empower</a></li>
         <li><a href="coolsculpting.html#faq">CoolSculpting FAQ</a></li>
       </ul>
     </div>
@@ -428,5 +455,9 @@
     if (!isOpen) { btn.classList.add('open'); ans.classList.add('open'); }
   }
 </script>
+  <script>
+    const hb=document.getElementById('hamburger'),mn=document.getElementById('mobileNav');
+    if(hb&&mn){hb.addEventListener('click',()=>{hb.classList.toggle('open');mn.classList.toggle('open');});}
+  </script>
 </body>
 </html>
