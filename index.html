@@ -103,7 +103,7 @@
       top: 100%;
       left: 0;
       background: var(--white);
-      min-width: 230px;
+      min-width: 480px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.12);
       border-top: 2px solid var(--gold);
       z-index: 999;
@@ -123,6 +123,11 @@
     }
     .dropdown a:last-child { border-bottom: none; }
     .dropdown a:hover { background: var(--gold-pale); color: var(--gold); }
+    .dropdown-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
 
     .nav-phone {
       font-family: var(--serif);
@@ -679,6 +684,7 @@
           <!-- AESTHETICS PAGE → repo: chattaesthetics-aesthetics -->
           <a href="aesthetics.html" >Aesthetics <span class="chevron">▾</span></a>
           <div class="dropdown">
+          <div class="dropdown-grid">
             <!-- Each treatment → its own repo. Paste URL when built. -->
             <a href="botox.html">Botox Cosmetic</a>
             <a href="peels.html">Peels</a>
@@ -703,6 +709,7 @@
             <a href="cellenis.html">Cellenis® Derma PRP</a>
             <a href="skincare.html">Neocutis &amp; Dermamade Skincare</a>
           </div>
+        </div>
         </li>
         <li>
           <a href="coolsculpting.html" >CoolSculpting <span class="chevron">▾</span></a>
